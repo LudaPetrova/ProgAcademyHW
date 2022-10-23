@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.banner{
+    background: url("../img/bcg-banner.jpg");
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center, a{
+    color: aliceblue;
+    text-align: center;
+}
+h1, a{
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.title{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+.text{
+    margin: 0 auto 1.5rem;
+    width: 85%;
+    background-color: rgba(69, 72, 79, 0.2);
+}
+.btn{
+    background-color: rgb(69, 72, 79);
+    color: aliceblue;
+    padding: 1rem 2rem;
+    border: none;
+}
