@@ -1,0 +1,87 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body, .red, .blue, .parent{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.red, .blue, .parent, .yellow{
+	border: 4px ridge;
+}
+
+.parent{
+	border-color: greenyellow;
+	height: 90vh;
+	width: 50%;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.red{
+	border-color: red;
+	width: 95%;
+	justify-content: space-around;
+	padding: 0 0.25%;
+}
+
+.blue{
+	border-color: blue;
+	height: 70%;
+	width: 23%;
+	flex-direction: column;
+}
+
+.red:nth-child(1) .blue:nth-child(1), .red:nth-child(1) .blue:nth-child(3), .red:nth-child(4) .blue:nth-child(1), .red:nth-child(4) .blue:nth-child(3){
+	width: 23%;
+}
+
+.red:nth-child(1) .blue:nth-child(2), .red:nth-child(4) .blue:nth-child(2){
+	width: 48%;
+}
+
+.red:nth-child(1), .red:nth-child(4){
+	height: 12%;
+}
+
+.red:nth-child(2){
+	height: 8%;
+}
+
+.red:nth-child(3){
+	height: 55%;
+}
+
+.red:nth-child(3) .blue:nth-child(1){
+	width: 23%;
+	height: 95%;
+}
+
+.red:nth-child(3) .blue:nth-child(2){
+	width: 73%;
+	height: 95%;
+}
+
+.yellow{
+	border-color: yellow;
+	width: 90%;
+	height: 30%;
+	margin: 1px;
+}
+
+.red:nth-child(3) .blue:nth-child(2) .yellow:nth-child(1){
+	height: 80%;
+	width: 95%;
+}
+
+.red:nth-child(3) .blue:nth-child(2) .yellow:nth-child(2){
+	height: 10%;
+	width: 95%;
+}
+
+.red:nth-child(3) .blue:nth-child(2){
+	justify-content: space-around;
+}
