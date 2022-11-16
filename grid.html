@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body, a{
+            font-size: 8 px;
+            color: darkslategray;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        img{
+            width: 70px;
+            height: 70px;
+            border-radius: 65%;
+        }
+            
+        .grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto;
+        }
+        .filial{
+            display: flex;
+            justify-content: space-evenly;
+            padding: 5%;
+        }
+        h2{
+            font-size: 1rem;
+            font-weight: normal;
+         }
+         p, a{
+            font-size: 0.8rem;
+            text-decoration: none;
+         }
+         .main{
+            width: 60%;
+            margin: auto;
+         }
+         .info{
+            text-align: left;
+         }
+         h1{
+            padding: 5%;
+         }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Філії Good Bread from Good People</h1>
+        <div class="grid">
+          <div class="filial">
+            <img src="img/1.jpg" alt="">
+            <div class="info">
+                <h2>Київ</h2>
+                <p>Ковальський пр., 19</p>
+                <a href="tel:+380964230214">+380964230214</a>
+            </div>
+          </div>
+          <div class="filial">
+            <img src="img/2.jpg" alt="">
+            <div class="info">
+            <h2>Харків</h2>
+            <p>Перемоги, 22</p>
+            <a href="tel:+380964230214">+380964230215</a>
+            </div>
+          </div>
+          <div class="filial">
+            <img src="img/3.jpg" alt="">
+            <div class="info">
+            <h2>Маріуполь</h2>
+            <p>Перемоги, 22</p>
+            <a href="tel:+380964230214">+380964230216</a>
+            </div>
+          </div>
+          <div class="filial">
+            <img src="img/4.jpg" alt="">
+            <div class="info">
+            <h2>Ялта</h2>
+            <p>Небесної сотні, 22А</p>
+            <a href="tel:+380964230214">+380964230216</a>
+            </div>
+          </div>
+          <div class="filial">
+            <img src="img/5.jpg" alt="">
+            <div class="info">
+            <h2>Рівне</h2>
+            <p>Перемоги, 22</p>
+            <a href="tel:+380964230214">+380964230216</a>
+          </div>
+          </div>
+          <div class="filial">
+            <img src="img/6.jpg" alt="">
+            <div class="info">
+            <h2>Львів</h2>
+            <p>Площа Ринок, 1</p>
+            <a href="tel:+380964230214">+380964230216</a>
+          </div>
+          </div>
+          
+        </div>
+    </div>
+</body>
+</html>
