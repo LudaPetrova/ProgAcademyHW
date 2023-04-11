@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			padding: 20px;
+			background: black;
+			color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.list {
+			list-style: none;
+		}
+
+		.list li {
+			text-transform: uppercase;
+			padding: 20px 10px;
+			transition: 1s;
+			cursor: pointer;
+			position: relative;
+			padding-left: 50px;
+		}
+
+		.list li:nth-child(odd) {
+			background: lightgray;
+		}
+
+		.list li:nth-child(even) {
+			background: darkgrey;
+		}
+
+		.list li:hover {
+			background: grey;
+		}
+
+		.closeBtn {
+			position: absolute;
+			right: 20px;
+		}
+
+		.checked {
+			background: green !important;
+			text-decoration: line-through;
+		}
+
+		.checked::before {
+			content: '✓';
+			position: absolute;
+			top: 15px;
+			left: 20px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<input type="text" name="" id="inp">
+		<button id="btn">Add some deal</button>
+	</header>
+	<div>
+		<ul class="list">
+			<li>some deal</li>
+			<li>some deal</li>
+			<li>some deal</li>
+			<li>some deal</li>
+			<li>some deal</li>
+		</ul>
+	</div>
+
+	<script>
+		const li = document.querySelectorAll('.list li');
+		const btn = document.getElementById('btn');
+		let inp = document.getElementById('inp');
+		let list = document.getElementsByClassName('list');
+		for (i = 0; i < li.length; i++) {
+			var span = document.createElement('span');
+			span.innerHTML = '<b>X</b>';
+			span.classList.add("closeBtn");
+			li[i].appendChild(span);
+			li[i].addEventListener('click', dealStatus)
+
+
+		}
+		function dealStatus() {
+			this.classList.toggle('checked');
+		}
+
+		var closeBtn = document.querySelectorAll(".closeBtn");
+		for (i = 0; i < closeBtn.length; i++) {
+			closeBtn[i].addEventListener('click', removeElement)
+		}
+		function removeElement() {
+			this.parentElement.remove();
+		}
+		btn.addEventListener('click', addTheDeal);
+		function addTheDeal() {
+			if (inp.value != 0) {
+				let li = document.createElement('li');
+				li.innerHTML = inp.value;
+				list[0].appendChild(li);
+				inp.value = '';
+				var span = document.createElement('span');
+				span.innerHTML = '<b>X</b>';
+				span.classList.add("closeBtn");
+				li.appendChild(span);
+				li.addEventListener('click', dealStatus);
+				var closeBtn = document.querySelectorAll(".closeBtn");
+				for (i = 0; i < closeBtn.length; i++) {
+					closeBtn[i].addEventListener('click', removeElement)
+				}
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>

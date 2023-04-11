@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="styleForPlategy.css">
+
+</head>
+
+<body>
+
+	<main>
+		<form action="">
+
+			<div class="row">
+				<div class="lable">Name:</div>
+				<div class="input"><input type="text" placeholder="Your name"></div>
+			</div>
+			<div class="row">
+				<div class="lable">Address:</div>
+				<div class="input"><input type="address" placeholder="Your address"></div>
+			</div>
+			<div class="row">
+				<div class="lable">Email:</div>
+				<div class="input"><input type="email" placeholder="Your email"></div>
+			</div>
+			<div class="switcher">
+				<div class="row">Property<input type="radio" name="prop" checked="checked" id="property"></div>
+				<div class="row">Money <input type="radio" name="prop" id="money"></div>
+			</div>
+			<div class="ligal switcher" id="noOwn">
+				<div class="row">Individual<input type="radio" name="ligal" id="ind"></div>
+				<div class="row">Enterprise<input type="radio" name="ligal" id="ent"></div>
+			</div>
+			<div class="row" id="sumBlock">
+				<div class="lable">Sum</div>
+				<div class="input"><input id="sum" type="text"></div>
+			</div>
+			<div class="commition row">
+				<div class="lable">Commition</div>
+				<div class="input" id="commition"></div>
+			</div>
+
+
+		</form>
+	</main>
+
+	<script>
+
+		const sum = document.querySelector('#sum');
+		const property = document.querySelector('#property');
+		const noOwn = document.querySelector('#noOwn');
+		const money = document.querySelector('#money');
+		const commition = document.querySelector('#commition');
+		const ind = document.querySelector('#ind');
+		const ent = document.querySelector('#ent');
+		const sumBlock = document.querySelector('#sumBlock');
+		let minWage = 6700.00;
+
+		sum.addEventListener('input', calcResult);
+		property.addEventListener('change', showLigal);
+		money.addEventListener('change', showLigal);
+
+		ent.addEventListener('change', moneyResult);
+		ind.addEventListener('change', moneyResult);
+
+		function calcResult() {
+			if (property.checked == true) {
+				if ((0.02 * sum.value) <= (10 * minWage)) {
+					commition.innerHTML = (0.02 * sum.value).toFixed(2);
+				} else if ((0.02 * sum.value) > (10 * minWage)) {
+					commition.innerHTML = (10 * minWage);
+				}
+			}
+		}
+
+		function moneyResult() {
+			if (ind.checked == true) {
+				commition.innerHTML = (minWage);
+			} else if (ent.checked == true) {
+				commition.innerHTML = (2 * minWage);
+			}
+		}
+
+
+		function showLigal() {
+			noOwn.classList.toggle('ligal');
+			sumBlock.classList.toggle('ligal');
+			commition.innerHTML = '';
+			sum.value = '';
+		}
+
+		let backgr = `rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)})`;
+		let backgr1 = `rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)})`;
+
+		const body = document.getElementsByTagName("body");
+		body[0].style.background = backgr;
+
+		const form = document.getElementsByTagName("form");
+		form[0].style.background = backgr1;
+
+
+
+
+
+	</script>
+
+</body>
+
+</html>

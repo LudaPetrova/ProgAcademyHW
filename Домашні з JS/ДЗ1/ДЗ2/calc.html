@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Calculator</title>
+
+</head>
+
+<body>
+	<input type="number" id="operand1">
+	<select name="sign" id="sign">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+	</select>
+	<input type="number" id="operand2">
+	<button id="resultBtn">Result</button>
+	<script>
+
+		const Calc = new Object;
+		Calc.operand1 = document.getElementById("operand1");
+		Calc.sign = document.getElementById("sign");
+		Calc.operand2 = document.getElementById("operand2");
+
+		Calc.result = function () {
+			if (Calc.sign.value == "+") {
+				alert(Number(Calc.operand1.value) + Number(Calc.operand2.value));
+			} else if (Calc.sign.value == "+") {
+				alert(Number(Calc.operand1.value) + Number(Calc.operand2.value));
+			} else if (Calc.sign.value == "+") {
+				alert(Number(Calc.operand1.value) + Number(Calc.operand2.value));
+			} else if (Calc.sign.value == "+") {
+				alert(Number(Calc.operand1.value) + Number(Calc.operand2.value));
+			}
+		}
+		let getResult = document.getElementById("resultBtn");
+		getResult.addEventListener('click', Calc.result);
+
+	</script>
+
+
+
+</body>
+
+</html>

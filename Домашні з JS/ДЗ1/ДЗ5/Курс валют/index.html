@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exchange</title>
+	<style>
+		header {
+			height: 50px;
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 5px;
+		}
+
+		.grid-item {
+			display: flex;
+			border: 1px solid black;
+			justify-content: space-between;
+			padding: 5px;
+		}
+
+		.grid-txt {
+			width: 50%;
+		}
+
+		.grid-rate {
+			width: 30%;
+			text-align: center;
+		}
+
+		.result {
+			height: 20px;
+			width: fit-content;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+
+		<div class="date"></div>
+
+	</header>
+
+
+	<div class="curs">
+		<select class="select"></select>
+		<input type="text" class="sum">
+
+		<div class="result"></div>
+		<button class="toggle-btn">=>^>=</button>
+
+	</div>
+
+	<div class="grid">
+
+
+	</div>
+
+
+	<script>
+
+		const grid = document.querySelector('.grid');
+		const date = document.querySelector('.date');
+		const select = document.querySelector('.select');
+		const inp = document.querySelector('.sum');
+		const button = document.querySelector('.toggle-btn');
+		let cur1;
+		let cur2;
+		let data;
+		let result = document.querySelector('.result');
+
+		fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')
+			.then(response => response.json())
+			.then(json => data = json)
+
+		setTimeout(function () {
+			data.forEach(function (el) {
+
+				let html = `<div class="grid-item">
+			<div class="grid-r030">${el.r030}</div>
+			<div class="grid-txt">${el.txt}</div>
+			<div class="grid-rate">${el.rate}</div>
+			<div class="grid-cc">${el.cc}</div></div>`
+				grid.insertAdjacentHTML('beforeend', html);
+
+				let option = document.createElement('option');
+				option.innerHTML = el.cc;
+				select.appendChild(option);
+
+			});
+
+			date.innerHTML = data[0].exchangedate;
+
+			const select2 = select.cloneNode(true);
+			inp.insertAdjacentElement('afterend', select2);
+			select2.id = 'select2';
+			select2.addEventListener('change', selectCur2);
+
+		}, 800);
+
+		select.addEventListener('change', selectCur);
+
+		function selectCur() {
+
+			data.forEach(function (el) {
+				if (data[1] != 0) {
+					if (select.value === el.cc) {
+						cur1 = el.rate;
+					}
+				}
+
+			})
+		}
+
+		function selectCur2() {
+
+			data.forEach(function (el) {
+				let select2 = document.querySelector('#select2');
+				if (data[1] != 0) {
+					if (select2.value === el.cc) {
+						cur2 = el.rate;
+					}
+				}
+
+			})
+		}
+
+
+
+		inp.addEventListener('input', calcResult);
+		function calcResult() {
+			let sum = +inp.value;
+			result.innerText = (cur1 * sum / cur2);
+		};
+
+		button.addEventListener('click', toggleRes);
+		function toggleRes() {
+
+		}
+
+
+	</script>
+</body>
+
+</html>
