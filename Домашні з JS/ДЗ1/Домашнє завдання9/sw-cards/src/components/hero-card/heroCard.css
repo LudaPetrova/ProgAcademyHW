@@ -1,0 +1,50 @@
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	gap: 50px;
+	padding: 7% 5%;
+}
+
+.heroCard {
+	background-color: #DBEDF3;
+	color: #404B69;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 3% 5%;
+}
+
+.heroName {
+	color: #00818A;
+}
+
+a {
+	color: #404B69;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #00818A;
+	transition: 1s;
+}
+
+.photo {
+	width: 200px;
+	height: 200px;
+	margin: 2%;
+
+}
+
+.char {
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+	padding: 1%;
+}
+
+.homeworld {
+	text-align: center;
+	font-size: large;
+}
